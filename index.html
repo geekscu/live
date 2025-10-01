@@ -1,3 +1,54 @@
-<!-- Start of  Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=7668c976-0fb7-47ee-8740-3e9115bdb10f"> </script>
-<!-- End of  Zendesk Widget script -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat With Our Expert</title>
+  <!-- Start of Zendesk Widget script -->
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=7668c976-0fb7-47ee-8740-3e9115bdb10f"></script>
+  <!-- End of Zendesk Widget script -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background-color: #f7f9fc;
+    }
+    h1 {
+      color: #2a2a2a;
+    }
+    p {
+      margin-top: -0.5rem;
+      margin-bottom: 2rem;
+      color: #555;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat With Our Expert</h1>
+  <p>Our experts are ready to assist you. Use the chat window below to get help instantly.</p>
+
+  <script>
+    // Wait until the Zendesk widget is ready, then open and show the chat window automatically
+    window.zESettings = {
+      webWidget: {
+        chat: {
+          suppress: false
+        }
+      }
+    };
+
+    // Poll until the Zendesk webWidget API is available
+    function openZendeskChat() {
+      if(window.zE) {
+        window.zE('webWidget', 'show');
+        window.zE('webWidget', 'open');
+      } else {
+        setTimeout(openZendeskChat, 100);
+      }
+    }
+    openZendeskChat();
+  </script>
+</body>
+</html>
